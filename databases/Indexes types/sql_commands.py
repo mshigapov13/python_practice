@@ -25,7 +25,7 @@ last_name varchar(50),
 first_name varchar(50),
 dob date,
 gender enum('m','f'),
-key using hash(l_name)
+key using hash(last_name)
 )'''
 
 
