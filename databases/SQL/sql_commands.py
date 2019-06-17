@@ -9,3 +9,5 @@ solved varchar(255) not null)'''
 describe_table = 'describe %s.%s'
 
 select = 'select * from %s.%s'
+
+delete = 'drop table %s'
