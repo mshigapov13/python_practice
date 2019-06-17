@@ -42,34 +42,3 @@ with UseDatabase(dbconfig) as cursor:
     for table in table_names:
         _SQL = sql_commands.table_drop % (dbconfig['database'], table)
         cursor.execute(_SQL)
-
-
-
-
-'''
-import common_table
-import btree
-import hash_table
-
-
-
-start_time = time.time()
-common_table.select()
-print('Non-index executed: --- %s ---' % (time.time() - start_time))
-
-
-start_time = time.time()
-btree.select()
-print('btree-index executed: --- %s ---' % (time.time() - start_time))
-
-
-start_time = time.time()
-hash_table.select()
-print('hash-index executed: --- %s ---' % (time.time() - start_time))
-
-
-with UseDatabase(dbconfig) as cursor:
-    for table in table_names:
-        _SQL = sql_commands.table_drop % (dbconfig['database'], table)
-        cursor.execute(_SQL)
-'''
