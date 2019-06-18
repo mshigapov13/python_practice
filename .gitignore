@@ -103,3 +103,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 databases/SQL/.idea
+networking/sockets/.idea/
