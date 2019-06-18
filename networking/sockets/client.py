@@ -1,7 +1,9 @@
 import socket
 
 sock = socket.socket()
-sock.connect(('localhost', 9090))
+Host = 'localhost'
+Port = 9090
+sock.connect((Host, Port))
 sock.send(b'hello, world!')
 
 data = sock.recv(1024)
