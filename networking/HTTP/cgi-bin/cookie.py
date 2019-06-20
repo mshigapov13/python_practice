@@ -1,4 +1,13 @@
-print("Set-cookie: name=value; expires=Wed May 18 03:33:20 2033; path=/cgi-bin/; httponly")
+import os
+import http.cookies
 
-print("Content-type: text/html\n")
-print("Cookies!!!")
+cookie = http.cookies.SimpleCookie(os.environ.get("HTTP_COOKIE"))
+name = cookie.get("name")
+if name is None:
+    print("Set-cookie: name=value")
+    print("Content-type: text/html\n")
+    print("Cookies!!!")
+else:
+    print("Content-type: text/html\n")
+    print("Cookies:")
+    print(name.value)
