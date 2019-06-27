@@ -106,3 +106,4 @@ databases/SQL/.idea
 networking/sockets/.idea/
 networking/HTTP/.idea/
 networking/chat/.idea/
+networking/dns_test/.idea/
