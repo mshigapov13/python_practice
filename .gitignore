@@ -107,3 +107,4 @@ networking/sockets/.idea/
 networking/HTTP/.idea/
 networking/chat/.idea/
 networking/dns_test/.idea/
+web_frameworks/Django/samplesite/.vscode/
