@@ -5,6 +5,6 @@ from .models import Bb
 
 def index(request):
     template = loader.get_template('bboard/index.html')
-    bbs = [Bb.objects.all()
+    bbs = Bb.objects.all()
     context = {'bbs':bbs}
     return HttpResponse(template.render(context, request))
