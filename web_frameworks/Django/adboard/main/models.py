@@ -46,14 +46,9 @@ class Bb(models.Model):
     content = models.TextField(verbose_name='Description')
     price = models.FloatField(default=0, verbose_name='Price')
     contacts = models.TextField(verbose_name='Contacts')
-    image = models.ImageField(blank=True, upload_to=get_timestamp_path, verbose_name=='Image')
+    image = models.ImageField(blank=True, upload_to=get_timestamp_path, verbose_name='Image')
     is_active = models.BooleanField(default=True, db_index=True, verbose_name='Need to output?')
     created_at = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Published')
-
-    def delete(self, *args, **kwargs):
-        for ai in self.additionalimage_set.all():
-            ai.delete()
-        super().delete(*args, **kwargs)
     
     class Meta:
         verbose_name_plural = 'Ads'
