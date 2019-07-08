@@ -109,3 +109,4 @@ networking/chat/.idea/
 networking/dns_test/.idea/
 web_frameworks/Django/samplesite/.vscode/
 web_frameworks/Django/adboard/.vscode/
+web_frameworks/Django/REST/.vscode/
