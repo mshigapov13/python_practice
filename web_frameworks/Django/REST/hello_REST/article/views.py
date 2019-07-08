@@ -10,3 +10,11 @@ class ArticleView(APIView):
         articles = Article.objects.all()
         serializer = ArticleSerializer(articles, many=True)
         return Response({"articles": serializer.data})
+
+    def post(self, request):
+        article = request.data.get('article')
+
+        serializer = ArticleSerializer(data=article)
+        if serializer.is_valid(raise_exception=True):
+            article_saved = serializer.save()
+        return Response({"success": "Article '{}' created successfully".format(article_saved.title)})
