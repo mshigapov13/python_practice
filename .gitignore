@@ -111,3 +111,5 @@ web_frameworks/Django/samplesite/.vscode/
 web_frameworks/Django/adboard/.vscode/
 web_frameworks/Django/REST/.vscode/
 security/xss/samplesite/.vscode/
+final_project/.vscode/
+final_project/myvenv/
