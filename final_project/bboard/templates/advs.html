@@ -1,6 +1,9 @@
-<h1>Advertising board homepage</h1>
-<u1>
-    {% for advertisement in all_advertisement_list %}
-    <li>{{ advertisement  }}</li>
-    {% endfor %}
-</u1>
+{% extends 'basic.html' %}
+{% block content %}
+{% for adv in all_advertisement_list %}
+<div class="adv-entry">
+    <h2><a href="">{{ adv.title }}</a></h2>
+    <p>{{ adv.body }}</p>
+</div>
+{% endfor %}
+{% endblock content %}

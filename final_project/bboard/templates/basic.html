@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Django advertisements</title>
+    </head>
+    <body>
+        <header>
+            <h1><a href="{% url 'advs' %}">Django bilboard</a></h1>
+        </header>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>
