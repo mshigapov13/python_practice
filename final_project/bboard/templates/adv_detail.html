@@ -2,9 +2,8 @@
 
 {% block content %}
 <div class="adv-entry">
-    <h2>{{ object.title }}</h2>
-    <p>{{ object.body }}</p>
-    <p>{{ object.author }}</p>
+    <h2>{{ adv.title }}</h2>
+    <p>{{ adv.body }}</p>
 </div>
-
+<a href="{% url 'adv_edit' adv.pk %}">+ Edit advertisement</a>
 {% endblock content %}

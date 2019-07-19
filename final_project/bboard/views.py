@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from .models import Advertisement
 
 
@@ -18,3 +18,9 @@ class AdvertisementCreateView(CreateView):
     model = Advertisement
     template_name = 'adv_new.html'
     fields = ['title', 'author', 'body']
+
+
+class AdvertisementUpdateView(UpdateView):
+    model = Advertisement
+    template_name = 'adv_edit.html'
+    fields = ['title', 'body']
