@@ -1,30 +1,43 @@
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
 from .models import Advertisement
 
-class AdvertisementModelTest(TestCase):
-    def setUp(self):
-        Advertisement.objects.create(text='just a test')
-    
-    def test_text_content(self):
-        advertisement = Advertisement.objects.get(id=1)
-        expected_obj_name = f'{advertisement.text}'
-        self.assertEqual(expected_obj_name, 'just a test')
 
-class AdvertisementsPageViewTest(TestCase):
+class AdvertisementTests(TestCase):
     def setUp(self):
-        Advertisement.objects.create(text='this is another test')
+        self.user = get_user_model().objects.create_user(
+            username='testuser',
+            email='test@email.com',
+            password='secret'
+        )
+
+        self.advertisement = Advertisement.objects.create(
+            title='Test title',
+            body='Test body',
+            author=self.user,
+        )
     
-    def test_view_url_exists_at_proper_location(self):
-        resp = self.client.get('/')
-        self.assertEqual(resp.status_code, 200)
-    
-    def test_view_url_by_name(self):
-        resp = self.client.get(reverse('advs'))
-        self.assertEqual(resp.status_code, 200)
-    
-    def test_view_uses_correct_template(self):
-        resp = self.client.get(reverse('advs'))
-        self.assertEqual(resp.status_code, 200)
-        self.assertTemplateUsed(resp, 'advs.html')
+    def test_adv_detail_view(self):
+        response = self.client.get('/advs/adv/1/')
+        no_response = self.client.get('/advs/adv/100000/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(no_response.status_code, 404)
+        self.assertContains(response, 'Test title')
+        self.assertTemplateUsed(response, 'adv_detail.html')
+
+    def test_adv_list_view(self):
+        response = self.client.get(reverse('advs'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Test body')
+        self.assertTemplateUsed(response, 'advs.html')
+
+    def test_string_representation(self):
+        advertisement = Advertisement(title='Sample title')
+        self.assertEqual(str(advertisement), advertisement.title)
+
+    def test_adv_content(self):
+        self.assertEqual(f'{self.advertisement.title}', 'Test title')
+        self.assertEqual(f'{self.advertisement.author}', 'testuser')
+        self.assertEqual(f'{self.advertisement.body}', 'Test body')
