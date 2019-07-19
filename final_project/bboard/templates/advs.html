@@ -2,7 +2,7 @@
 {% block content %}
 {% for adv in all_advertisement_list %}
 <div class="adv-entry">
-    <h2><a href="">{{ adv.title }}</a></h2>
+    <h2><a href="{% url 'adv_detail' adv.pk %}">{{ adv.title }}</a></h2>
     <p>{{ adv.body }}</p>
 </div>
 {% endfor %}

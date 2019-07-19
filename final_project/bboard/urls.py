@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import HomePageView
+from .views import AdvertisementListView, AdvertisementDetailView
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='advs'),
+    path('adv/<int:pk>/', AdvertisementDetailView.as_view(), name='adv_detail'),
+    path('', AdvertisementListView.as_view(), name='advs'),
 ]
