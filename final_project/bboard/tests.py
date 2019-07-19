@@ -41,3 +41,13 @@ class AdvertisementTests(TestCase):
         self.assertEqual(f'{self.advertisement.title}', 'Test title')
         self.assertEqual(f'{self.advertisement.author}', 'testuser')
         self.assertEqual(f'{self.advertisement.body}', 'Test body')
+    
+    def test_adv_create_view(self):
+        response = self.client.adv(reverse('adv_new'), {
+            'title': 'New Test title',
+            'body': 'New Test text',
+            'author': self.user,
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'New Test title')
+        self.assertContains(response, 'New Test text')
