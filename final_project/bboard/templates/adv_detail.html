@@ -1,9 +1,8 @@
 {% extends 'basic.html' %}
-
 {% block content %}
 <div class="adv-entry">
-    <h2>{{ adv.title }}</h2>
-    <p>{{ adv.body }}</p>
+    <h2>{{ advertisement.title }}</h2>
+    <p>{{ advertisement.body }}</p>
 </div>
-<a href="{% url 'adv_edit' adv.pk %}">+ Edit advertisement</a>
+<a href="{% url 'adv_edit' advertisement.pk %}">+ Edit advertisement</a>
 {% endblock content %}
