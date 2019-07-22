@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Advertisement
+from django.urls import reverse_lazy
 
 
 class AdvertisementListView(ListView):
@@ -25,3 +26,10 @@ class AdvertisementUpdateView(UpdateView):
     model = Advertisement
     template_name = 'adv_edit.html'
     fields = ['title', 'body']
+
+
+class AdvertisementDeleteView(DeleteView):
+    model = Advertisement
+    template_name = 'adv_delete.html'
+    context_object_name = 'advertisement'
+    success_url = reverse_lazy('advs')

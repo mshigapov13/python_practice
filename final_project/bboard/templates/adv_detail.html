@@ -4,5 +4,6 @@
     <h2>{{ advertisement.title }}</h2>
     <p>{{ advertisement.body }}</p>
 </div>
-<a href="{% url 'adv_edit' advertisement.pk %}">+ Edit advertisement</a>
+<p><a href="{% url 'adv_edit' advertisement.pk %}">+ Edit advertisement</a></p>
+<p><a href="{% url 'adv_delete' advertisement.pk %}">+ Remove advertisement</a></p>
 {% endblock content %}

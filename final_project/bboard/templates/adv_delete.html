@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Remove advertisement</h1>
+<form action="" method="post"> {% csrf_token %}
+    <p>Are you sure that you want to delete "{{ advertisement.title }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>
+{% endblock content %}
