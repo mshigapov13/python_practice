@@ -37,15 +37,13 @@ class AdvertisementTests(TestCase):
         self.assertContains(response, 'Test body')
         self.assertTemplateUsed(response, 'advs.html')
 
-    
-
     def test_adv_content(self):
         self.assertEqual(f'{self.advertisement.title}', 'Test title')
         self.assertEqual(f'{self.advertisement.author}', 'testuser')
         self.assertEqual(f'{self.advertisement.body}', 'Test body')
     
     def test_adv_create_view(self):
-        response = self.client.adv(reverse('adv_new'), {
+        response = self.client.post(reverse('adv_new'), {
             'title': 'New Test title',
             'body': 'New Test text',
             'author': self.user,
