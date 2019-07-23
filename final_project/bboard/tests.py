@@ -24,8 +24,8 @@ class AdvertisementTests(TestCase):
         self.assertEqual(str(advertisement), advertisement.title)
 
     def test_adv_detail_view(self):
-        response = self.client.get('/advs/adv/1/')
-        no_response = self.client.get('/advs/adv/100000/')
+        response = self.client.get('/adv/1/')
+        no_response = self.client.get('/adv/100000/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, 'Test title')
