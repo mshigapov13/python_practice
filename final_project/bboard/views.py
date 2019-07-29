@@ -19,7 +19,7 @@ class AdvertisementDetailView(DetailView):
 class AdvertisementCreateView(CreateView):
     model = Advertisement
     template_name = 'adv_new.html'
-    fields = ['title', 'author', 'body']
+    fields = ['title', 'body']
 
 
 class AdvertisementUpdateView(UpdateView):
