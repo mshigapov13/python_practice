@@ -1,7 +1,7 @@
 {% extends 'basic.html' %}
 {% block content %}
 {% for adv in all_advertisement_list %}
-<div class="adv-entry">
+<div class="card-footer text-center text-muted">
     <h2><a href="{% url 'adv_detail' adv.pk %}">{{ adv.title }}</a></h2>
     <p>{{ adv.body }}</p>
 </div>

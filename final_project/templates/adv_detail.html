@@ -2,11 +2,11 @@
 {% block content %}
 <div class="adv-entry">
     <h2>{{ advertisement.title }}</h2>
-    <h4>Advertisement:</h4>
+    <p>by {{ advertisement.author }} | {{ advertisement.date }} </p>
     <p>{{ advertisement.body }}</p>
-    <h4>Author: {{ advertisement.author }}</h4>
-    <h4>Published date: {{ advertisement.date }}</h4>
 </div>
-<p><a href="{% url 'adv_edit' advertisement.pk %}">+ Edit advertisement</a></p>
-<p><a href="{% url 'adv_delete' advertisement.pk %}">+ Remove advertisement</a></p>
+<p><a href="{% url 'adv_edit' advertisement.pk %}">Edit</a> | 
+    <a href="{% url 'adv_delete' advertisement.pk %}">Remove</a></p>
+<p>Back to <a href="{% url 'advs' %}">All advertisements</a></p>
+
 {% endblock content %}

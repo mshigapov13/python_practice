@@ -4,6 +4,6 @@
 <h1>Remove advertisement</h1>
 <form action="" method="post"> {% csrf_token %}
     <p>Are you sure that you want to delete "{{ advertisement.title }}"?</p>
-    <input type="submit" value="Confirm" />
+    <button class="btn btn-info ml-2" type="submit">Confirm</button>
 </form>
 {% endblock content %}

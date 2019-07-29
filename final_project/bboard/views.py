@@ -19,7 +19,11 @@ class AdvertisementDetailView(DetailView):
 class AdvertisementCreateView(CreateView):
     model = Advertisement
     template_name = 'adv_new.html'
-    fields = ['title', 'body']
+    fields = ('title', 'body')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class AdvertisementUpdateView(UpdateView):
