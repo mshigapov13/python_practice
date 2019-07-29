@@ -14,7 +14,9 @@
                 <h1><a href="{% url 'advs' %}">Django bilboard</a></h1>
             </div>
             <div class="nav-right">
+                {% if user.is_authenticated %}
                 <a href="{% url 'adv_new' %}">+ New Advertisement</a>
+                {% endif %}
             </div>
         </header>
         {% if user.is_authenticated %}
